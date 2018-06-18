@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import Login from './Components/Login';
 import Navbarcustom from './Components/Navbarcustom';
-import { BrowserRouter as Router, Route, Link, NavLink} from 'react-router-dom';
+import { BrowserRouter as Router, Route,  NavLink} from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 const Root = () =>
 <Router>

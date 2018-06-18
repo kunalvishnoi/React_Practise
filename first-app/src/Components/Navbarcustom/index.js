@@ -5,17 +5,17 @@ class Navbarcustom extends Component {
   render() {
     return (
       <div className="App">
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="#">Testing</a>
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <a className="navbar-brand" href="/">Testing</a>
             </div>
-            <ul class="nav navbar-nav">
+            <ul className="nav navbar-nav">
               <li>
-                <a href="/">SignUp</a>
+                <a activeClassName='active' href="/">SignUp</a>
               </li>
               <li>
-                <a href="/Login">Login</a>
+                <a activeClassName='active' href="/Login">Login</a>
               </li>
             </ul>
           </div>
