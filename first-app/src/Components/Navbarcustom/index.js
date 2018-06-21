@@ -8,14 +8,14 @@ class Navbarcustom extends Component {
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/">Testing</a>
+              <a className="navbar-brand">Testing</a>
             </div>
             <ul className="nav navbar-nav">
               <li>
-                <a activeClassName='active' href="/">SignUp</a>
+                <a href="/">SignUp</a>
               </li>
               <li>
-                <a activeClassName='active' href="/Login">Login</a>
+                <a href="/Login">Login</a>
               </li>
             </ul>
           </div>

@@ -55,5 +55,8 @@ body {
   border-top-right-radius: 0;
 }
 .navbar-default .navbar-nav>li>a:active {
-  color:blue;
+  color:black;
+}
+.navbar-default .navbar-nav>li>a:target {
+  color:black;
 }
