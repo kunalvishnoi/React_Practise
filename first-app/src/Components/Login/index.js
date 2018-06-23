@@ -17,15 +17,21 @@ class Login extends  Component {
   }
   submitForm(event) {
     event.preventDefault();
+    const payload = {
+      email: this.state.email,
+      password: this.state.password
+    }
     superagent
-      .post('http://54.157.21.6:8080/users/login')
-      .send({email: this.state.email, password: this.state.password})
-      .end((err, res) => {
-        if(err) { this.setState({errorMessage: "Authentication Failed"}); 
-        console.log("error": err);
-        }
-       localStorage.setItem('token' ,res.headers['x-auth']);
-       this.props.onSuccessfulLogin();
+  .post("http://54.157.21.6:8080/users/login")
+      .set("Content-Type", "application/json")
+      .send(payload)
+      .then(res => {
+        console.log(res);
+        localStorage.setItem("token", res.headers["x-auth"]);
+        this.props.onSuccessfulLogin();
+      })
+      .catch(err => {
+        console.log("err", err);
       });
   }
   isAuthenticated() {
