@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import superagent from 'superagent';
-
+import Navbarcustom from '../Navbarcustom/';
 class Login extends  Component {
   constructor() {
     super();
@@ -24,33 +24,43 @@ class Login extends  Component {
         if(err) { this.setState({errorMessage: "Authentication Failed"}); 
         console.log("error": err);
         }
-       console.log("res headers" , res.headers);
+       localStorage.setItem('token' ,res.headers['x-auth']);
+       this.props.onSuccessfulLogin();
       });
   }
+  isAuthenticated() {
+    const token = localStorage.getItem('token');
+    return token && token.length > 10;
+  }
+
   render() {
     return (
-      <div className="App">
+      <div>
+       <Navbarcustom />
         <div className="wrapper">
           <form 
             className="form-signin"
             onSubmit={this.submitForm.bind(this)}
-            name="email"
+            name="mail"
             >       
             <h2 className="form-signin-heading">Please login</h2>
             <input type="email"
               className="form-control"
               value={this.state.email}
               onChange={this.handleemailChanged.bind(this)}
+              placeholder="Email"
               />
             <input type="password" 
               className="form-control" 
               value={this.state.password} 
               name="password"
+              placeholder="Password"
               onChange={this.handlePasswordChanged.bind(this)}
               />      
             <button className="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
           </form>
         </div>
+        )}
       </div>
       );
   }

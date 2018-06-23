@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-
+import Navbarcustom from '../Navbarcustom';
 class Signup extends Component {
 render() {
   return (
     <div className="App">
+    <Navbarcustom />
       <div className="wrapper">
         <form className="form-signin">       
           <h2 className="form-signin-heading">Please SignUp</h2>
