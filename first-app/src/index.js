@@ -37,7 +37,6 @@ const Root = () =>
     <Route exact path="/login" component={ Loginform } />
     <Route  path="/Protected" component= { NavbarMain } />
     <Route exact path="/Protected/Directory" component= { Protected } />
-
   </div>
 </Router>
 

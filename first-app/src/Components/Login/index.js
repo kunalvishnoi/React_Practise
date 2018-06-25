@@ -26,17 +26,13 @@ class Login extends  Component {
       .set("Content-Type", "application/json")
       .send(payload)
       .then(res => {
-        console.log(res);
+        console.log(res);        
         localStorage.setItem("token", res.headers["x-auth"]);
         this.props.onSuccessfulLogin();
       })
       .catch(err => {
         console.log("err", err);
       });
-  }
-  isAuthenticated() {
-    const token = localStorage.getItem('token');
-    return token && token.length > 10;
   }
 
   render() {
@@ -47,7 +43,6 @@ class Login extends  Component {
           <form 
             className="form-signin"
             onSubmit={this.submitForm.bind(this)}
-            name="mail"
             >       
             <h2 className="form-signin-heading">Please login</h2>
             <input type="email"

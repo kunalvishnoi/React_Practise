@@ -8,7 +8,7 @@ class Loginmain extends  Component {
   render() {
     return (
       <div className="App">
-      <Login />
+      <Signup />
       </div>
       );
   }
