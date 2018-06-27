@@ -15,10 +15,10 @@ class Loginform extends  Component {
     });
   }
   render() {
-    const {isAuthenticated} = this.state;
+    const isAlreadyAuthenticated = this.isAuthenticated();
     return (
       <div>
-      { isAuthenticated ? <Redirect to={{
+      { isAlreadyAuthenticated ? <Redirect to={{
         pathname: '/Protected/Directory'
       }}/> : (
       <Login onSuccessfulLogin={this.handleSuccessfulLogin.bind(this)}/>

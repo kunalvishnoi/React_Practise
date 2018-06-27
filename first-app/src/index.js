@@ -5,6 +5,7 @@ import App from './App';
 import Loginform from './Components/Loginform';
 import Protected from './Components/Protected';
 import NavbarMain from './Components/NavbarMain';
+import NewTodo from './Components/NewTodo';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -37,6 +38,7 @@ const Root = () =>
     <Route exact path="/login" component={ Loginform } />
     <Route  path="/Protected" component= { NavbarMain } />
     <Route exact path="/Protected/Directory" component= { Protected } />
+    <Route exact path="/Protected/NewTodo" component= { NewTodo } />
   </div>
 </Router>
 

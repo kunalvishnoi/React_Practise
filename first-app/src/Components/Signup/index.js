@@ -61,7 +61,6 @@ class Signup extends  Component {
             <button className="btn btn-lg btn-primary btn-block" type="submit">Signup</button>   
           </form>
         </div>
-        )}
       </div>
       );
   }

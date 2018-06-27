@@ -29,6 +29,24 @@ class NavbarMain extends Component {
                 Logout
                 </button>
                 </NavLink>
+                </li>
+                <li>
+                <NavLink to="/Protected/NewTodo">
+                <button
+                className="btn btn-link"
+                >
+                CreateTodo
+                </button>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/Protected/Directory">
+                <button
+                className="btn btn-link"
+                >
+                Dashboard
+                </button>
+                </NavLink>
               </li>
             </ul>
           </div>

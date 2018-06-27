@@ -15,11 +15,11 @@ class Signupform extends  Component {
     });
   }
   render() {
-    const {isAuthenticated} = this.state;
+    const isAlreadyAuthenticated = this.isAuthenticated();
     return (
       <div>
-      { isAuthenticated ? <Redirect to={{
-        pathname: '/App/Directory'
+      { isAlreadyAuthenticated ? <Redirect to={{
+        pathname: '/Protected/Directory'
       }}/> : (
       <Signup onSuccessfulSignup={this.handleSuccessfulSignup.bind(this)}/>
       )
