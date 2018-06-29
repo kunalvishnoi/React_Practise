@@ -45,7 +45,8 @@ class NewTodo extends  Component {
               onChange={this.handleTextChanged.bind(this)}
               placeholder="Enter Todo"
               />     
-            <button className="btn btn-lg btn-primary btn-block" type="submit">Signup</button>   
+              <br/>
+            <button className="btn btn-lg btn-primary btn-block" type="submit">Create</button>   
           </form>
         </div>
       );

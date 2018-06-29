@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
+import superagent from 'superagent';
 class NavbarMain extends Component {
   
-  handleLogout(){
-      localStorage.removeItem('token');
-      this.setState();
+ getAuthenticationToken() {
+    return  localStorage.getItem('token');
+  }
+
+  handleLogout() {
+     superagent
+     // .del('http://54.157.21.6:8080/me/' + this.getAuthenticationToken())
+     // .set('x-auth' , this.getAuthenticationToken())
+     // .then(res => {
+        localStorage.removeItem('token');
+      //  })
+      // .catch(err =>
+      //    console.log(err)
+      //    );
+           
+      
   }
   isAuthenticated() {
     const token = localStorage.getItem('token');
