@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import superagent from 'superagent';
-import { Redirect } from 'react-router-dom';
 
 class NewTodo extends  Component {
   constructor() {
@@ -13,19 +12,23 @@ class NewTodo extends  Component {
     return localStorage.getItem('token');
   }
   handleTextChanged(event) {
-    this.setState({text: event.target.value});
+    this.setState({
+      text: event.target.value
+    })
   }
   submit(event) {
     event.preventDefault();
     const payload = {
       text: this.state.text
     }
+    
     superagent
     .post("http://54.157.21.6:8080/todos")
       .set('x-auth' , this.getAuthenticationToken())
       .send(payload)
       .then(res => {
-        console.log(res);        
+        console.log(res);
+      this.props.addTodo(payload)    
       })
       .catch(err => {
         console.log(err);

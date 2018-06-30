@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
-import superagent from 'superagent';
+// import superagent from 'superagent';
 class NavbarMain extends Component {
   
  getAuthenticationToken() {
@@ -9,7 +9,7 @@ class NavbarMain extends Component {
   }
 
   handleLogout() {
-     superagent
+     // superagent
      // .del('http://54.157.21.6:8080/me/' + this.getAuthenticationToken())
      // .set('x-auth' , this.getAuthenticationToken())
      // .then(res => {

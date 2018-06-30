@@ -1,19 +1,28 @@
 import React, { Component } from 'react';
 import superagent from 'superagent'; 
+import NewTodo from '../NewTodo';
 class Protected extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      todo: []
+      todo: [],
     }
   }
 
   getAuthenticationToken() {
     return localStorage.getItem('token');
   }
-
+  handleAddTodo = (payload) => {
+    this.setState(oldState => ({
+      todo: [...oldState.todo, payload]
+    }))
+  }
   handleDelete(id) {
-      console.log(id);
+    const remainingTodos = this.state.todo.filter(todo => todo._id !== id)
+    console.log({remainingTodos});
+    this.setState({
+      todo: remainingTodos
+    })
     superagent
      .del('http://54.157.21.6:8080/todos/' + id)
       .set('x-auth' , this.getAuthenticationToken())
@@ -37,14 +46,16 @@ class Protected extends Component {
         console.log("error", err);
       });
   }
+
 render() {
   return (
     <div className="App"> 
+    <NewTodo addTodo={(this.handleAddTodo)} />
     <h1 style={{textAlign: 'center'}}>TODOS</h1>
     <br/>
       {this.state.todo.map(data => {
           return (
-              <div key="data._id">
+              <div key={data._id}>
               <h3 style={{display: 'inline-block'}}>
               {this.state.todo.indexOf(data)+1})&nbsp;
               </h3>
