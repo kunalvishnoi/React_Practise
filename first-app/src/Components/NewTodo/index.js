@@ -21,14 +21,18 @@ class NewTodo extends  Component {
     const payload = {
       text: this.state.text
     }
-    
+
     superagent
     .post("http://54.157.21.6:8080/todos")
       .set('x-auth' , this.getAuthenticationToken())
       .send(payload)
       .then(res => {
-        console.log(res);
-      this.props.addTodo(payload)    
+        console.log(res.body._id);
+        const newTodo = {
+      text: this.state.text , 
+      _id: res.body._id
+    } 
+      this.props.addTodo(newTodo)    
       })
       .catch(err => {
         console.log(err);

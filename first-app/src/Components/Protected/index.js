@@ -12,12 +12,13 @@ class Protected extends Component {
   getAuthenticationToken() {
     return localStorage.getItem('token');
   }
-  handleAddTodo = (payload) => {
+  handleAddTodo = (newTodo) => {
     this.setState(oldState => ({
-      todo: [...oldState.todo, payload]
+      todo: [...oldState.todo, newTodo]
     }))
   }
   handleDelete(id) {
+    console.log(id)
     const remainingTodos = this.state.todo.filter(todo => todo._id !== id)
     console.log({remainingTodos});
     this.setState({
